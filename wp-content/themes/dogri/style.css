@@ -18,3 +18,9 @@ nav{
   nav ul a {
     color: #000000;
   }
+  .sidenav-trigger i{
+    color: #000000;
+  }
+  .carousel-slider{
+    height: 550px !important;
+  }
