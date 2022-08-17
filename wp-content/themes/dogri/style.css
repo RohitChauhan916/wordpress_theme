@@ -24,3 +24,137 @@ nav{
   .carousel-slider{
     height: 550px !important;
   }
+  .carousel .carousel-item > img {
+    height: 550px;
+    object-fit: cover;
+  }
+
+  .btn_color {
+    background-color: transparent;
+    background-image: linear-gradient(90deg,#24a3ff 0%,#2a4bfe 100%);
+    border-radius: 50px;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: Teko, sans-serif;
+  }
+  p{
+    font-family: Montserrat, sans-serif;
+  }
+  .brand-logo{
+    font-family: Teko, sans-serif;
+  }
+  li a{
+    font-family: Montserrat, sans-serif;
+    font-size: 16px !important;
+  }
+  .about_para {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .about_para a{
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+  }
+  .about_para p{
+    font-size: 16px;
+    text-align: justify;
+  }
+  section{
+    margin: -20px 0px;
+  }
+  .about{
+    padding-top: 100px;
+    padding-bottom: 80px;
+    background-color: #ffffff;
+  }
+  .service {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .bg_card{
+    color: black;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+    z-index: 1;
+  }
+  .card-content{
+    max-height: 100% !important;
+  }
+  .bg_card:before{
+    background: linear-gradient(90deg,#24a3ff 0%,#2a4bfe 100%);
+    content: "";
+      width: 100%;
+      height: 100%;
+    top: 0;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+  .bg_card:hover:before{
+    opacity: 1;
+  }
+  .bg_card:hover{
+    color: #fff;
+    box-shadow: 6px 8px 35px 0px #24a3ff;
+  }
+  .bg_card i {
+    color: #2a4bfe;
+  }
+  .bg_card:hover i{
+    color: #fff;
+  }
+  .card-content .card-title{
+    font-family: Teko, sans-serif;
+    text-align: center;
+  }
+  .card-content p{
+    font-family: Montserrat, sans-serif;
+  }
+  .service h3{
+    text-align: center;
+    padding-bottom: 30px;
+    position: relative !important;
+    font-family: Teko, sans-serif;
+  }
+  .service h3:after{
+    position: absolute !important;
+    content: '' !important;
+    width: 70px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg,#24a3ff 0%,#2a4bfe 100%);
+    bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 4px 4px 10px 1px #2a4bfe;
+  }
+  .blog {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .blog h3{
+    text-align: center;
+    padding-bottom: 30px;
+    position: relative !important;
+    font-family: Teko, sans-serif;
+  }
+  .blog h3:after{
+    position: absolute !important;
+    content: '' !important;
+    width: 70px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg,#24a3ff 0%,#2a4bfe 100%);
+    bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 4px 4px 10px 1px #2a4bfe;
+  }

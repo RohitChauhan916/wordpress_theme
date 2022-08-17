@@ -2,6 +2,8 @@
 
 
 function dogri_files() {
+    wp_enqueue_style( 'Montserrat', get_template_directory_uri() . '/font/Montserrat/static/Montserrat-Light.ttf', false);
+    wp_enqueue_style( 'Teko', get_template_directory_uri() . '/font/Teko/Teko-Medium.ttf', false);
     wp_enqueue_style( 'masterialize_css', get_template_directory_uri() . '/css/materialize.min.css',false,'1.0','all');
     wp_enqueue_style('ayush_main_styles', get_stylesheet_uri());
     wp_enqueue_script( 'jquery-3', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array ( 'jquery' ), 1.0, true);
