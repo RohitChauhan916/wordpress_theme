@@ -8,7 +8,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    
+<header>
 <nav>
     <div class="nav-wrapper">
         <!-- logo image -->
@@ -29,16 +29,12 @@
         <?php endif; ?>
         <!-- <p><?php bloginfo( 'description' ); ?></p> -->
 
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <?php echo create_bootstrap_menu('primary'); ?>
-        
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-
-    </div>
+      </div>
   </nav>
+      <?php echo mobile_bootstrap_menu('primary'); ?>
+</header>
+
+    
         
