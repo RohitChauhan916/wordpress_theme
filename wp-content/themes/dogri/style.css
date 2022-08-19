@@ -99,7 +99,14 @@ nav{
   .bg_card:hover:before{
     opacity: 1;
   }
+  .bg_card:active:before{
+    opacity: 1;
+  }
   .bg_card:hover{
+    color: #fff;
+    box-shadow: 6px 8px 35px 0px #24a3ff;
+  }
+  .bg_card:active{
     color: #fff;
     box-shadow: 6px 8px 35px 0px #24a3ff;
   }
@@ -107,6 +114,9 @@ nav{
     color: #2a4bfe;
   }
   .bg_card:hover i{
+    color: #fff;
+  }
+  .bg_card:active i{
     color: #fff;
   }
   .card-content .card-title{
@@ -157,4 +167,84 @@ nav{
     left: 0;
     right: 0;
     box-shadow: 4px 4px 10px 1px #2a4bfe;
+  }
+  .about_para h3{
+    padding-bottom: 30px;
+    position: relative !important;
+  }
+  .about_para h3:after{
+    position: absolute !important;
+    content: '' !important;
+    width: 70px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg,#24a3ff 0%,#2a4bfe 100%);
+    bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    box-shadow: 4px 4px 10px 1px #2a4bfe;
+  }
+  .page-footer {
+    background-color: #fff;
+    color: black;
+  }
+  .footer_pad{
+    padding: 80px 0px;
+  }
+  .white-text{
+    color: #000 !important;
+  }
+  .grey-text.text-lighten-4 {
+    color: #000 !important;
+  }
+  .grey-text.text-lighten-3 {
+    color: #000 !important;
+  }
+  .footer-copyright{
+    color: #000 !important;
+  }
+  .img_sec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+  }
+  .post_color{
+    color: #000;
+  }
+  @media (max-width: 420px){
+    .carousel-slider {
+    height: 250px !important;
+  }
+   .carousel .carousel-item > img {
+    height: 250px;
+    object-fit: cover;
+     width: 100%;
+  }
+  .service {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .about {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .about_para {
+    align-items: center;
+    padding-bottom: 50px;
+  }
+  .blog {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .footer_pad {
+    padding: 50px 0px;
+  }
+  .about_para h3:after{
+    right: 0;
+  }
+  .img_sec{
+    height: auto;
+  }
   }

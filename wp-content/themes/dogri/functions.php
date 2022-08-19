@@ -136,3 +136,63 @@ function featured_image() {
 add_action('after_setup_theme', 'featured_image');
 
 require get_template_directory() . '/inc/customizer.php';
+
+function dogri_widgets_init() {
+
+    // Sidebar.
+    register_sidebar( array(
+        'name' => __( 'Sidebar', 'dogri' ),
+        'id' => 'sidebar-1',
+        'description' => __( 'The first footer widget area', 'dogri' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+ 
+    // First footer widget area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'First Footer Widget Area', 'dogri' ),
+        'id' => 'first-footer-widget-area',
+        'description' => __( 'The first footer widget area', 'dogri' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+ 
+    // Second Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Second Footer Widget Area', 'dogri' ),
+        'id' => 'second-footer-widget-area',
+        'description' => __( 'The second footer widget area', 'dogri' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+ 
+    // Third Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Third Footer Widget Area', 'dogri' ),
+        'id' => 'third-footer-widget-area',
+        'description' => __( 'The third footer widget area', 'dogri' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+ 
+    // Fourth Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Fourth Footer Widget Area', 'dogri' ),
+        'id' => 'fourth-footer-widget-area',
+        'description' => __( 'The fourth footer widget area', 'dogri' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+         
+}
+add_action( 'widgets_init', 'dogri_widgets_init' );

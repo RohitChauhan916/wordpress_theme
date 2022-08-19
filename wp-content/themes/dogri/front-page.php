@@ -40,120 +40,128 @@
 </section>
 <?php } ?>
 
+<?php if(get_theme_mod('service-display-setting') === 'Yes'){?>
 <!-- section service -->
 <section class="service">
     <div class="container">
-        <h3>Services</h3>
+        <?php $servicehead = get_theme_mod('service_head');
+        if($servicehead){
+        ?>
+        <h3><?php echo $servicehead?></h3>
+        <?php } ?>
         <div class="row">
             <div class="col s12 m6 l4">
                 <div class="card small bg_card">
                     <div class="card-image">
-                        <i class="large material-icons">cloud</i>
+                        <i class="large material-icons"><?php echo get_theme_mod('icon1');?></i>
                     </div>
                     <div class="card-content">
-                        <span class="card-title">Cloud Service</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                        <span class="card-title"><?php echo get_theme_mod('icon_head1');?></span>
+                        <p><?php echo get_theme_mod('icon_para1');?></p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
                 <div class="card small bg_card">
                     <div class="card-image">
-                        <i class="large material-icons">trending_up</i>
+                        <i class="large material-icons"><?php echo get_theme_mod('icon2');?></i>
                     </div>
                     <div class="card-content">
-                        <span class="card-title">Analytics</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                        <span class="card-title"><?php echo get_theme_mod('icon_head2');?></span>
+                        <p><?php echo get_theme_mod('icon_para2');?></p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
                 <div class="card small bg_card">
                     <div class="card-image">
-                        <i class="large material-icons">support_agent</i>
+                        <i class="large material-icons"><?php echo get_theme_mod('icon3');?></i>
                     </div>
                     <div class="card-content">
-                        <span class="card-title">Tech Support</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                        <span class="card-title"><?php echo get_theme_mod('icon_head2');?></span>
+                        <p><?php echo get_theme_mod('icon_para3');?></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<?php } ?>
 
 <!-- section about -->
+<?php if(get_theme_mod('about-display-setting') === 'Yes'){?>
 <section class="about">
     <div class="container">
         <div class="row">
         <div class="col s12 m12 l6">
             <div class="about_para">
-                <h3>ABOUT US</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a class="waves-effect waves-light btn-large btn_color z-depth-3">READ MORE</a>
+                <?php $about_head =  get_theme_mod('about_head');
+                    if($about_head){
+                ?>
+                <h3><?php echo $about_head;?></h3>
+                <?php } ?>
+                <p><?php echo get_theme_mod('about_para');?></p>
+                <a class="waves-effect waves-light btn-large btn_color z-depth-3" href="<?php echo get_theme_mod('about_url');?>">READ MORE</a>
             </div>
         </div>
         <div class="col s12 m12 l6">
             <div class="img_sec">
-                <img class="responsive-img z-depth-1" src="https://demo.phlox.pro/free-business/wp-content/uploads/sites/40/2018/04/young-woman-holding-mobile-phone-in-office-PE9ARDR-768x640.jpg">
+            <?php 
+                $about_id = get_theme_mod( 'about-image' );
+                $about_data = wp_get_attachment_url( $about_id , 'full' );
+                if ($about_data){
+            ?>
+                <img class="responsive-img z-depth-1" src="<?php echo $about_data; ?>">
+                <?php } ?>
             </div>
         </div>
         </div>
     </div>
 </section>
+<?php } ?>
+
+<!-- Blog section -->
+<?php if(get_theme_mod('blog-display-setting') === 'Yes'){?>
 <section class="blog">
     <div class="container">
-        <h3>Blog</h3>
+        <?php $blog_head = get_theme_mod('blog_head');
+            if($blog_head){
+        ?>
+        <h3><?php echo $blog_head?></h3>
+        <?php } ?>
         <div class="row">
+        <?php 
+        $numberpost = get_theme_mod('blog_no');
+        $cat        = get_theme_mod('_s_f_slide_cat');
+        $homepageStories = new Wp_Query(array(
+            'posts_per_page'    => $numberpost,
+            'post_type'         => 'post',
+            'category_name'     => $cat,
+        ));
+        while($homepageStories->have_posts()){
+            $homepageStories->the_post();
+        ?>
             <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/office.jpg">
+            <a href="<?php the_permalink();?>"><div class="card">
+                <?php $image_id = get_post_thumbnail_id();
+                    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+                    $image_title = get_the_title($image_id);
+                    $postimg = the_post_thumbnail();
+                    if($postimg){
+                    ?>
+                    <div class="card-image">
+                        <img class="activator" src="<?php echo $postimg?>" alt="<?php echo $image_title?>">
                     </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
+                    <?php } ?>
+                    <div class="card-content post_color">
+                        <span class="card-title"><?php the_title();?></span>
+                        <p><?php echo wp_trim_words(get_the_content(), 30) ?></p>
                     </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                    </div>
-                </div>
+                </div></a>
             </div>
-            <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/office.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/office.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
+<?php } ?>
 <?php get_footer();?>
