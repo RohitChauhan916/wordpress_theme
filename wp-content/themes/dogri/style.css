@@ -213,6 +213,15 @@ nav{
   .post_color{
     color: #000;
   }
+  .post{
+    padding: 80px 0px;
+  }
+  .card .responsive-img {
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+  }
   @media (max-width: 420px){
     .carousel-slider {
     height: 250px !important;
