@@ -1,27 +1,50 @@
 <footer class="page-footer">
+<?php
+
+if ( is_active_sidebar( 'first-footer-widget-area' ) || is_active_sidebar( 'second-footer-widget-area' ) || is_active_sidebar( 'third-footer-widget-area' )|| is_active_sidebar( 'fourth-footer-widget-area' ) ) {?>
+  <div class="footer_pad">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      <!-- first footer -->
+      <?php if ( is_active_sidebar( 'first-footer-widget-area' )) : ?>
+        <div class="col s12 m6 l3">
+          <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
+        </div>
+        <?php endif; ?>
+
+      <!-- second footer -->
+      <?php if ( is_active_sidebar( 'second-footer-widget-area' )) : ?>
+      <div class="col s12 m6 l3">
+        <?php dynamic_sidebar('second-footer-widget-area');?>
       </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-        </ul>
+      <?php endif; ?>
+
+      <!-- third footer -->
+      <?php if ( is_active_sidebar( 'third-footer-widget-area' )) : ?>
+      <div class="col s12 m6 l3">
+        <?php dynamic_sidebar('third-footer-widget-area');?>
       </div>
+      <?php endif; ?>
+
+      <!-- fourth footer -->
+      <?php if ( is_active_sidebar( 'fourth-footer-widget-area' )) : ?>
+      <div class="col s12 m6 l3">
+        <?php dynamic_sidebar('fourth-footer-widget-area');?>
+      </div>
+      <?php endif; ?>
     </div>
   </div>
+  </div>
+  <?php } ?>
+  <?php 
+    $footer_copy = get_theme_mod('footer_copy');
+    if($footer_copy){ ?>
   <div class="footer-copyright">
     <div class="container">
-    © 2014 Copyright Text
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <?php echo $footer_copy;?>
     </div>
   </div>
+  <?php } ?>
 </footer>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <?php wp_footer(); ?>
@@ -35,8 +58,7 @@
 
   $('.carousel.carousel-slider').carousel({
     fullWidth: true,
-    indicators: true,
-    duration: 200
+    indicators: true
   });
   autoplay();
 function autoplay() {
