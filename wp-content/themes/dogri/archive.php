@@ -4,7 +4,7 @@
     <div class="row">
     <?php 
         $homeStories = new Wp_Query(array(
-            'posts_per_page' => 9,
+            'posts_per_page' => 8,
             'post_type' => 'post',
             'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
             ));
@@ -25,7 +25,7 @@
                     <?php } ?>
                     <div class="card-content post_color">
                         <span class="card-title"><?php echo wp_trim_words( get_the_title(), 3 );?></span>
-                        <p><?php echo wp_trim_words(get_the_content(), 5); ?></p>
+                        <p><?php echo wp_trim_words(get_the_content(), 10, '...'); ?></p>
                     </div>
                 </div></a>
             </div>
